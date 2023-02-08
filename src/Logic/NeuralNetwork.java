@@ -6,7 +6,7 @@ public class NeuralNetwork {
     public static final int INPUT_LAYER_SIZE = 784;
     public static final int HIDDEN_LAYER_SIZE = 100;
     public static final int OUTPUT_LAYER_SIZE = 10;
-    public static final double LEARNING_RATE = 0.1;
+    public static final double LEARNING_RATE = 0.035; // average 90% accuracy
 
     private double[][] inputToHiddenWeights;
     private double[] hiddenBias;
@@ -23,7 +23,7 @@ public class NeuralNetwork {
 
         for (int i = 0; i < INPUT_LAYER_SIZE; i++) {
             for (int j = 0; j < HIDDEN_LAYER_SIZE; j++) {
-                inputToHiddenWeights[i][j] = rng.nextDouble() * 0.1;
+                inputToHiddenWeights[i][j] = rng.nextDouble() * 0.1; // * 0.1
             }
         }
 
@@ -77,9 +77,9 @@ public class NeuralNetwork {
 
         // Calculate hidden layer activations
         for (int i = 0; i < HIDDEN_LAYER_SIZE; i++) {
-            for (int j = 0; j < INPUT_LAYER_SIZE; j++) {
+            for (int j = 0; j < INPUT_LAYER_SIZE; j++)
                 hiddenLayerActivations[i] += inputToHiddenWeights[j][i] * inputs[j];
-            }
+
             hiddenLayerActivations[i] += hiddenBias[i];
             hiddenLayerActivations[i] = sigmoid(hiddenLayerActivations[i]);
         }
@@ -88,9 +88,9 @@ public class NeuralNetwork {
 
         // Calculate output layer activations
         for (int i = 0; i < OUTPUT_LAYER_SIZE; i++) {
-            for (int j = 0; j < HIDDEN_LAYER_SIZE; j++) {
+            for (int j = 0; j < HIDDEN_LAYER_SIZE; j++)
                 outputLayerActivations[i] += hiddenToOutputWeights[j][i] * hiddenLayerActivations[j];
-            }
+
             outputLayerActivations[i] += outputBias[i];
             outputLayerActivations[i] = sigmoid(outputLayerActivations[i]);
         }
@@ -98,25 +98,25 @@ public class NeuralNetwork {
         double[] outputLayerErrors = new double[OUTPUT_LAYER_SIZE];
 
         // Calculate output layer errors
-        for (int i = 0; i < OUTPUT_LAYER_SIZE; i++) {
+        for (int i = 0; i < OUTPUT_LAYER_SIZE; i++)
             outputLayerErrors[i] = outputLayerActivations[i] - (i == target ? 1 : 0);
-        }
+
 
         double[] hiddenLayerErrors = new double[HIDDEN_LAYER_SIZE];
 
         // Calculate hidden layer errors
-        for (int i = 0; i < HIDDEN_LAYER_SIZE; i++) {
-            for (int j = 0; j < OUTPUT_LAYER_SIZE; j++) {
+        for (int i = 0; i < HIDDEN_LAYER_SIZE; i++)
+            for (int j = 0; j < OUTPUT_LAYER_SIZE; j++)
                 hiddenLayerErrors[i] += outputLayerErrors[j] * hiddenToOutputWeights[i][j];
-            }
-        }
+
+
 
         // Update hidden to output weights
-        for (int i = 0; i < HIDDEN_LAYER_SIZE; i++) {
-            for (int j = 0; j < OUTPUT_LAYER_SIZE; j++) {
+        for (int i = 0; i < HIDDEN_LAYER_SIZE; i++)
+            for (int j = 0; j < OUTPUT_LAYER_SIZE; j++)
                 hiddenToOutputWeights[i][j] -= LEARNING_RATE * outputLayerErrors[j] * hiddenLayerActivations[i];
-            }
-        }
+
+
 
         // Update output biases
         for (int i = 0; i < OUTPUT_LAYER_SIZE; i++) {
@@ -138,4 +138,16 @@ public class NeuralNetwork {
     private double sigmoid(double x) {
         return 1 / (1 + Math.exp(-x));
     }
+
+    public double evaluate(double[][] data, int[] labels) {
+        int correct = 0;
+        for (int i = 0; i < data.length; i++) {
+            int predicted = predict(data[i]);
+            if (predicted == labels[i]) {
+                correct++;
+            }
+        }
+        return (double) correct / data.length;
+    }
+
 }
