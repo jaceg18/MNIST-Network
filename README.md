@@ -12,23 +12,41 @@ Getting Started
 
 
 Prerequisites
+
   Java 1.8 or later
+  
   Java Integrated Development Environment (IDE) such as Eclipse or IntelliJ IDEA
+  
   Installing
+  
   Clone the repository to your local machine.
+  
   Open the project in your IDE.
+  
   Add the MNIST dataset to the project, you can download the dataset from here.
+  
   Update the file path in the code to point to the location of the dataset on your machine.
+  
   Running the code
+  
   Run the Main class as a Java application.
+  
   The code will train the Neural Network on the training data and evaluate its accuracy on the test data.
+  
   Hyperparameter tuning
+  
   The Neural Network's performance can be improved by adjusting the following hyperparameters:
+  
 
   Learning rate: controls the step size for weight updates during training
+  
   Number of hidden layers: determines the complexity of the model
+  
   Number of neurons in hidden layers: determines the size of the model
+  
   Experiment with different hyperparameters to find the best configuration for your problem.
+  
 
 Built With
+
   Java
