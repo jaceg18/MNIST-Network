@@ -1,12 +1,15 @@
 # HRNetwork
 
 Neural Network with MNIST Dataset
+
   This project implements a simple Neural Network using the MNIST dataset to recognize handwritten digits. The MNIST dataset consists of 60,000 training examples and 10,000 testing examples of handwritten digits, with each image being 28x28 pixels.
 
 The Neural Network uses supervised learning to train a model that maps the input image data to a label (0-9) representing the handwritten digit. The accuracy of the model is evaluated on a test set and the model can be improved by adjusting the hyperparameters such as the learning rate, number of hidden layers, and number of neurons in the hidden layers.
 
+
 Getting Started
   These instructions will help you set up the project on your local machine and use the code to train and evaluate the Neural Network.
+
 
 Prerequisites
   Java 1.8 or later
