@@ -73,9 +73,9 @@ public class Main2 {
             if (accuracy > bestAccuracy) {
                 bestAccuracy = accuracy;
                 bestEpoch = i;
-            } else if (i - bestEpoch >= patience) {
+            } else if (i - bestEpoch >= patience)
                 break;
-            }
+
         }
         System.out.println("Best epoch: " + (bestEpoch + 1) + " with accuracy: " + bestAccuracy);
         System.out.println("Final test accuracy: " + nn.evaluate(testingData, testingLabels));
