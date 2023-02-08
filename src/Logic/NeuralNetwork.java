@@ -7,7 +7,7 @@ public class NeuralNetwork {
     public static final int INPUT_LAYER_SIZE = 784;
     public static final int HIDDEN_LAYER_SIZE = 100;
     public static final int OUTPUT_LAYER_SIZE = 10;
-    public static final double LEARNING_RATE = 0.035; // average 90% accuracy
+    public static final double LEARNING_RATE = 0.035;
 
     private double[][] inputToHiddenWeights;
     private double[] hiddenBias;
