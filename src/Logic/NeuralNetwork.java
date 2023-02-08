@@ -1,6 +1,7 @@
 package Logic;
 import java.util.Random;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class NeuralNetwork {
 
     public static final int INPUT_LAYER_SIZE = 784;
