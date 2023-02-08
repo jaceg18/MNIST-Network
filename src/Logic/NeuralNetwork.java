@@ -123,7 +123,7 @@ public class NeuralNetwork {
             outputBias[i] -= LEARNING_RATE * outputLayerErrors[i];
         }
 
-        // Update input to hidden weights
+        // Update input to hidden weightss
         for (int j = 0; j < INPUT_LAYER_SIZE; j++)
             for (int k = 0; k < HIDDEN_LAYER_SIZE; k++)
                 inputToHiddenWeights[j][k] -= LEARNING_RATE * hiddenLayerErrors[k] * inputs[j];
