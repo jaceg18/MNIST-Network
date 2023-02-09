@@ -60,7 +60,7 @@ public class Main {
         }
         sc.close();
 
-        int epochs = 10;
+        int epochs = 40;
         int patience = 5;
         int bestEpoch = -1;
         double bestAccuracy = 0;

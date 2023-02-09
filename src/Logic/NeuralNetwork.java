@@ -135,6 +135,8 @@ public class NeuralNetwork {
         for (int i = 0; i < HIDDEN_LAYER_SIZE; i++) {
             hiddenBias[i] -= LEARNING_RATE * hiddenLayerErrors[i];
         }
+
+
     }
     private double sigmoid(double x) {
         return 1 / (1 + Math.exp(-x));
