@@ -1,24 +1,31 @@
-MNIST Network
-A handmade neural network implementation for the MNIST handwritten digit classification task in Java.
+# MNIST-Network
+MNIST-Network is a Java program that trains a Neural Network made from scratch to recognize handwritten digits using the MNIST dataset.
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+## Getting Started
+To get started with MNIST-Network, follow these steps:
 
-Prerequisites
-To run this project, you will need a Java Development Kit (JDK) installed on your machine.
+- Clone the repository using git clone https://github.com/jaceg18/MNIST-Network.git.
+- Open the project in your preferred Java IDE.
+- Run the program.
+## Usage
+By default, the program trains the neural network using the MNIST training data and evaluates its performance on the MNIST test data. The program outputs the accuracy of the neural network on the test data.
 
-Installing
-Clone the repository to your local machine using the following command:
-- git clone https://github.com/jaceg18/MNIST-Network.git
-Navigate to the project directory and compile the source code:
+You can also customize the neural network architecture and training parameters by modifying the program files. Here are some of the key parameters you can adjust:
 
-- javac Main.java
-Run the compiled class file:
+- inputSize: The size of the input images (28 x 28 pixels for the MNIST dataset).
+- hiddenSize: The number of hidden neurons in each hidden layer.
+- outputSize: The number of output neurons (10 for the MNIST dataset).
+- learningRate: The learning rate for the gradient descent algorithm.
+- numEpochs: The number of training epochs.
+- batchSize: The batch size for each training iteration.
+### Results
+The program outputs the accuracy of the neural network on the MNIST test data after training. The accuracy achieved may vary depending on the neural network architecture and training parameters used.
 
-- java Main.java
-Using the MNIST Network
-The MNIST Network takes the 28x28 grayscale images of handwritten digits as inputs and outputs the digit class (0-9) with the highest probability. The network architecture and hyperparameters can be adjusted in the MNIST.java file.
+### Contributing
+Contributions to MNIST-Network are welcome! If you find a bug or want to contribute code, please submit an issue or pull request.
 
-Built With
+### License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-Java SE Development Kit
+# Credits
+This project was developed by Jace Grant.
